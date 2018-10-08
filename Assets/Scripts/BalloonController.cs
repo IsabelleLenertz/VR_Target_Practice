@@ -7,6 +7,7 @@ public class BalloonController : MonoBehaviour {
     public GameObject meMyselfEye;
     public GameObject balloonPrefab;
     public float floatStrength = 20f;
+    public float growRate = 1.5f;
 
     private GameObject balloon;
     private MyInputyController inputController;
@@ -24,6 +25,9 @@ public class BalloonController : MonoBehaviour {
         } else if (inputController.RightTriggerUp())
         {
             ReleaseBalloon();
+        } else if(balloon != null)
+        {
+            GrowBalloon();
         }
 	}
 
@@ -38,4 +42,8 @@ public class BalloonController : MonoBehaviour {
         balloon = null;
     }
 
+    private void GrowBalloon()
+    {
+        balloon.transform.localScale += balloon.transform.localScale * growRate * Time.deltaTime;
+    }
 }

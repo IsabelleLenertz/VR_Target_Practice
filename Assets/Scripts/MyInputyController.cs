@@ -6,6 +6,7 @@ public class MyInputyController : MonoBehaviour {
 
     public SteamVR_TrackedObject rightHand;
     private SteamVR_Controller.Device device;
+    public MyInputAction myInput;
 
 	// Use this for initialization
 	void Start () {
