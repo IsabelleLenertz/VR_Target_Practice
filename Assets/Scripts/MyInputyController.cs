@@ -15,7 +15,17 @@ public class MyInputyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (RightTriggerDown())
+        {
+            myInput.buttonAction = MyInputAction.ButtonAction.PressedDown;
+        } else if (RightTriggerUp())
+        {
+            myInput.buttonAction = MyInputAction.ButtonAction.ReleasedUp;
+        }
+        else
+        {
+            myInput.buttonAction = MyInputAction.ButtonAction.None;
+        }
 	}
 
     public bool RightTriggerDown()

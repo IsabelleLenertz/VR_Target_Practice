@@ -2,27 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class BalloonController : MonoBehaviour {
 
-    public GameObject meMyselfEye;
     public GameObject balloonPrefab;
     public float floatStrength = 20f;
     public float growRate = 1.5f;
+    public MyInputAction myInput;
 
     private GameObject balloon;
     private MyInputyController inputController;
+ 
 
 	// Use this for initialization
 	void Start () {
-        inputController = meMyselfEye.GetComponent<MyInputyController>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (inputController.RightTriggerDown())
+        if (myInput.buttonAction == MyInputAction.ButtonAction.PressedDown)
         {
             NewBalloon();
-        } else if (inputController.RightTriggerUp())
+        } else if (myInput.buttonAction == MyInputAction.ButtonAction.ReleasedUp)
         {
             ReleaseBalloon();
         } else if(balloon != null)
