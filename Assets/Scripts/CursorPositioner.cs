@@ -7,6 +7,7 @@ public class CursorPositioner : MonoBehaviour
     public GameObject meMyselfEye;
     private float defaultPosZ;
     private MyInputyController input;
+    private Vector3 hitpoint;
 
     void Start()
     {
@@ -16,12 +17,13 @@ public class CursorPositioner : MonoBehaviour
 
     void Update()
     {
-        Transform controller = input.controllerPosition();
-        Ray ray = new Ray(controller.position, controller.rotation * Vector3.forward);
+        Transform controller = input.controllerPosition();// Get position of the controller
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(controller.position, controller.forward, out hit, 100)) // Cast a ray and saves the hit point and object
         {
-            transform.localPosition = new Vector3(0, 0, hit.distance);
+            hitpoint = hit.point;
+            transform.position = hitpoint; // Change the position of the reticle to the hit point
+            Vector3.MoveTowards(transform.position, controller.position, 0.05f); // Push the point just a little closer to the controller to make sure it is not hidden by the target
         }
     }
 }
