@@ -12,8 +12,9 @@ public class Laser : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+        laser = Instantiate(laserPrefab);
+        laserTransform = laser.transform;
+    }
 
     private SteamVR_Controller.Device Controller
     {
@@ -23,8 +24,22 @@ public class Laser : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
-	}
+        if (Controller.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(trackedObj.transform.position, transform.forward, out hit, 100))
+            {
+                hitPoint = hit.point;
+                ShowLaser(hit);
+                GameObject objectHit = hit.transform.gameObject; // for future use, check if target
+            }
+        }
+        else
+        {
+            laser.SetActive(false);
+        }
+    }
 
     private void ShowLaser(RaycastHit hit)
     {

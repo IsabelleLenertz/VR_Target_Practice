@@ -6,7 +6,6 @@ public class MyInputyController : MonoBehaviour {
 
     public SteamVR_TrackedObject rightHand;
     private SteamVR_Controller.Device device;
-    public MyInputAction myInput;
 
 	// Use this for initialization
 	void Start () {
@@ -15,17 +14,7 @@ public class MyInputyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (RightTriggerDown())
-        {
-            myInput.buttonAction = MyInputAction.ButtonAction.PressedDown;
-        } else if (RightTriggerUp())
-        {
-            myInput.buttonAction = MyInputAction.ButtonAction.ReleasedUp;
-        }
-        else
-        {
-            myInput.buttonAction = MyInputAction.ButtonAction.None;
-        }
+
 	}
 
     public bool RightTriggerDown()
@@ -47,5 +36,10 @@ public class MyInputyController : MonoBehaviour {
             return true;
         }
         return false;
+    }
+
+    public Transform controllerPosition()
+    {
+        return rightHand.transform;
     }
 }
