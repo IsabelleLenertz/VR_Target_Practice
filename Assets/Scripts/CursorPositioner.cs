@@ -24,6 +24,17 @@ public class CursorPositioner : MonoBehaviour
             hitpoint = hit.point;
             transform.position = hitpoint; // Change the position of the reticle to the hit point
             Vector3.MoveTowards(transform.position, controller.position, 0.05f); // Push the point just a little closer to the controller to make sure it is not hidden by the target
+
+            // Check if the user shoots
+            if (input.RightTriggerDown())
+            {
+                GameObject hitObj = hit.transform.gameObject;
+                if(hitObj.tag == "target")
+                {
+                    Destroy(hitObj);
+                }
+
+            }
         }
     }
 }
