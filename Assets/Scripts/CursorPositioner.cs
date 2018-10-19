@@ -5,14 +5,20 @@ using UnityEngine;
 public class CursorPositioner : MonoBehaviour
 {
     public GameObject meMyselfEye;
+    public SteamVR_TrackedObject rightHand;
+
+
     private float defaultPosZ;
     private MyInputyController input;
     private Vector3 hitpoint;
+
+
 
     void Start()
     {
         defaultPosZ = transform.localPosition.z;
         input = meMyselfEye.GetComponent<MyInputyController>();
+
     }
 
     void Update()
@@ -31,6 +37,7 @@ public class CursorPositioner : MonoBehaviour
                 GameObject hitObj = hit.transform.gameObject;
                 if(hitObj.tag == "target")
                 {
+                    rightHand.GetComponent<AudioSource>().Play();
                     Destroy(hitObj);
                 }
 
