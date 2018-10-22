@@ -7,14 +7,21 @@ public class TargetMouvement1 : MonoBehaviour {
     private Vector3 initialPos;
     public float speed = 10f;
     public float maxDistance = 20f;
+    public GameObject explosion;
 
 	// Use this for initialization
 	void Start () {
         initialPos = this.GetComponent<Transform>().position;
+        explosion.GetComponent<ParticleSystem>().Stop();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void OnDestroy()
+    {
+        explosion.GetComponent<ParticleSystem>().Play(); // Does that work ?
+    }
+
+    // Update is called once per frame
+    void Update () {
 		// moves along the z axis
         if(Vector3.Distance(initialPos, this.GetComponent<Transform>().position) < maxDistance)
         {
