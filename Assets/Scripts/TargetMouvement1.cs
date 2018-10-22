@@ -17,7 +17,7 @@ public class TargetMouvement1 : MonoBehaviour {
 
     private void OnDestroy()
     {
-        explosion.GetComponent<ParticleSystem>().Play(); // Does that work ?
+        //explosion.GetComponent<ParticleSystem>().Play(); // Does that work ?
     }
 
     // Update is called once per frame

@@ -6,6 +6,7 @@
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -221,8 +222,8 @@ namespace Valve.VR.InteractionSystem
 		{
 			if ( !string.IsNullOrEmpty( switchToScene ) )
 			{
-				Debug.Log( "TeleportPoint: Hook up your level loading logic to switch to new scene: " + switchToScene );
-			}
+                SceneManager.LoadScene(switchToScene);
+            }
 			else
 			{
 				Debug.LogError( "TeleportPoint: Invalid scene name to switch to: " + switchToScene );

@@ -27,6 +27,7 @@ public class CursorPositioner : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(controller.position, controller.forward, out hit, 100)) // Cast a ray and saves the hit point and object
         {
+            this.gameObject.GetComponent<Canvas>().enabled = true;
             hitpoint = hit.point;
             transform.position = hitpoint; // Change the position of the reticle to the hit point
             Vector3.MoveTowards(transform.position, controller.position, 0.05f); // Push the point just a little closer to the controller to make sure it is not hidden by the target
@@ -42,6 +43,9 @@ public class CursorPositioner : MonoBehaviour
                 }
 
             }
+        } else
+        {
+            this.gameObject.GetComponent<Canvas>().enabled = false;
         }
     }
 }

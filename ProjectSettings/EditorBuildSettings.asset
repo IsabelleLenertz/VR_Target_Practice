@@ -4,4 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Teleportation tutorial.unity
+    guid: ef572e9a7e71fe0458a3de3d7acd5fd8
+  - enabled: 1
+    path: Assets/Scenes/Shooting_Tutorial.unity
+    guid: 6058460573917e0499d563905e8b81ec
+  m_configObjects: {}
