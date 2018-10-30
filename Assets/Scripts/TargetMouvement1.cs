@@ -8,16 +8,19 @@ public class TargetMouvement1 : MonoBehaviour {
     public float speed = 10f;
     public float maxDistance = 20f;
     public GameObject explosion;
+    public GameObject nextLevelTeleportationPoint;
 
 	// Use this for initialization
 	void Start () {
         initialPos = this.GetComponent<Transform>().position;
-        explosion.GetComponent<ParticleSystem>().Stop();
+        //explosion.GetComponent<ParticleSystem>().Stop();
 	}
 
     private void OnDestroy()
     {
         //explosion.GetComponent<ParticleSystem>().Play(); // Does that work ?
+        nextLevelTeleportationPoint.SetActive(true);
+
     }
 
     // Update is called once per frame
