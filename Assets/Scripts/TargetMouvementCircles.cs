@@ -29,7 +29,7 @@ public class TargetMouvementCircles : MonoBehaviour {
         teta += speed;
         Vector3 position = this.GetComponent<Transform>().position;
         position.x = radius * Mathf.Cos(teta);
-        position.y = radius * Mathf.Sin(teta);
+        position.z = radius * Mathf.Sin(teta);
         this.GetComponent<Transform>().position = position;
     }
 }
