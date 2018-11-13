@@ -28,8 +28,8 @@ public class TargetMouvementCircles : MonoBehaviour {
         // the sphere turn in a circle
         teta += speed;
         Vector3 position = this.GetComponent<Transform>().position;
-        position.x = radius * Mathf.Cos(teta);
-        position.z = radius * Mathf.Sin(teta);
+        position.x = center.x + radius * Mathf.Cos(teta);
+        position.z = center.z + radius * Mathf.Sin(teta);
         this.GetComponent<Transform>().position = position;
     }
 }

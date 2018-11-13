@@ -22,6 +22,7 @@ public class MyInputyController : MonoBehaviour {
         device = SteamVR_Controller.Input((int)rightHand.index);
         if(device != null && device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
         {
+            Debug.Log("right trigger pressed");
             device.TriggerHapticPulse(700);
             return true;
         }
@@ -41,5 +42,26 @@ public class MyInputyController : MonoBehaviour {
     public Transform controllerPosition()
     {
         return rightHand.transform;
+    }
+
+    public bool RightHairGripDown()
+    {
+        device = SteamVR_Controller.Input((int)rightHand.index);
+        if (device != null && device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
+        {
+            Debug.Log("right hair grip pressed");
+            return true;
+        }
+        return false;
+    }
+
+    public bool RightHairGripUp()
+    {
+        device = SteamVR_Controller.Input((int)rightHand.index);
+        if (device != null && device.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
+        {
+            return true;
+        }
+        return false;
     }
 }
