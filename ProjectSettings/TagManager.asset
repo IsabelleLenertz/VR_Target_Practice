@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - target
+  - Level_1
+  - Shooting_Tutorial
+  - Teleportation_Tutorial
   layers:
   - Default
   - TransparentFX

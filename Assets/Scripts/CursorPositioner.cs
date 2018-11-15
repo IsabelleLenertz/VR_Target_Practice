@@ -6,11 +6,13 @@ public class CursorPositioner : MonoBehaviour
 {
     public GameObject meMyselfEye;
     public SteamVR_TrackedObject rightHand;
+    public static int score;
 
 
     private float defaultPosZ;
     private MyInputyController input;
     private Vector3 hitpoint;
+    private const int pointsPerTarget = 1;
 
 
 
@@ -18,7 +20,7 @@ public class CursorPositioner : MonoBehaviour
     {
         defaultPosZ = transform.localPosition.z;
         input = meMyselfEye.GetComponent<MyInputyController>();
-
+        score = 0;
     }
 
     void Update()
@@ -40,6 +42,7 @@ public class CursorPositioner : MonoBehaviour
                 {
                     rightHand.GetComponent<AudioSource>().Play();
                     Destroy(hitObj);
+                    score += pointsPerTarget;
                 }
 
             }

@@ -49,7 +49,6 @@ public class MyInputyController : MonoBehaviour {
         device = SteamVR_Controller.Input((int)rightHand.index);
         if (device != null && device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
         {
-            Debug.Log("right hair grip pressed");
             return true;
         }
         return false;
@@ -64,4 +63,15 @@ public class MyInputyController : MonoBehaviour {
         }
         return false;
     }
+
+    public bool RightMenuButtonDown()
+    {
+        device = SteamVR_Controller.Input((int)rightHand.index);
+        if (device != null && device.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
+        {
+            return true;
+        }
+        return false;
+    }
+
 }
