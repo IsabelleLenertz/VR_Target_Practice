@@ -28,6 +28,7 @@ public class RightController : MonoBehaviour {
         // Get the number of targets at the begining
         GameObject[] targets = GameObject.FindGameObjectsWithTag("target");
         totalTargets = targets.Length;
+        CursorPositioner.score = 0;
     }
 
     // Update is called once per frame
