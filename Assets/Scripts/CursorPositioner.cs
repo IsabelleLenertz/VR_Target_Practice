@@ -25,6 +25,7 @@ public class CursorPositioner : MonoBehaviour
 
     void Update()
     {
+        input.RightTriggerDown();
         Transform controller = input.controllerPosition();// Get position of the controller
         RaycastHit hit;
         if (Physics.Raycast(controller.position, controller.forward, out hit, 100)) // Cast a ray and saves the hit point and object

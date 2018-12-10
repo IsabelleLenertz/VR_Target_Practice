@@ -22,8 +22,20 @@ public class MyInputyController : MonoBehaviour {
         device = SteamVR_Controller.Input((int)rightHand.index);
         if(device != null && device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
         {
-            Debug.Log("right trigger pressed");
-            device.TriggerHapticPulse(700);
+            //Debug.Log("right trigger pressed");
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+            device.TriggerHapticPulse(3999);
+
             return true;
         }
         return false;
